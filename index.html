@@ -5,38 +5,452 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>My Software Development Portfolio</title>
+    <meta name="description"
+          content="Software development portfolio featuring Python, AI, machine learning and computer vision projects.">
+
+    <title>Software Development Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fc;
+            color: #24344d;
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg, #101c36, #244d83, #3b438d
+            );
+            color: white;
+            padding: 30px 8% 85px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: bold;
+            color: #83e6ed;
+        }
+
+        nav a {
+            color: #e3edff;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        nav a:hover {
+            color: #83e6ed;
+        }
+
+        .hero {
+            max-width: 850px;
+            margin: 75px auto 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d5e3f6;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #74e1d6;
+            color: #10233c;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hero-button:hover {
+            background: white;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 22px;
+        }
+
+        section {
+            margin-bottom: 65px;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #152a49;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #61718a;
+            margin-bottom: 28px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            background: #e2eafa;
+            color: #244b84;
+            padding: 9px 17px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(25, 45, 80, 0.08);
+            transition: transform 0.25s,
+                        box-shadow 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 35px
+                        rgba(25, 45, 80, 0.16);
+        }
+
+        .project-top {
+            padding: 30px;
+            color: white;
+            font-size: 38px;
+        }
+
+        .blue {
+            background: linear-gradient(
+                135deg, #0f78b8, #23b4d5
+            );
+        }
+
+        .purple {
+            background: linear-gradient(
+                135deg, #7048ba, #b279e4
+            );
+        }
+
+        .orange {
+            background: linear-gradient(
+                135deg, #df762b, #f4ae56
+            );
+        }
+
+        .green {
+            background: linear-gradient(
+                135deg, #16856e, #51b99c
+            );
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-top: 0;
+            color: #1a3050;
+        }
+
+        .project-content p {
+            color: #61718a;
+            font-size: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .tag {
+            background: #edf2fb;
+            color: #3d5681;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #176cbb;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .coming-soon {
+            color: #7b879a;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .contact {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e3e9f3;
+        }
+
+        .contact a {
+            color: #176cbb;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #101c36;
+            color: #c6d4e8;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 25px 20px 55px;
+            }
+
+            .hero {
+                margin-top: 55px;
+            }
+
+            nav a {
+                margin-left: 8px;
+            }
+
+            main {
+                padding: 35px 18px;
+            }
+
+            .contact {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to My Coding Portfolio</h1>
 
-    <p>
-        I am interested in Python programming,
-        artificial intelligence, machine learning,
-        and computer vision.
-    </p>
+    <header>
+        <nav>
+            <div class="logo">NAZ / DEV PORTFOLIO</div>
 
-    
-<h2>Featured Projects</h2>
+            <div>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
 
-<h3>OpenCV Invisibility Cloak</h3>
+        <div class="hero">
+            <h1>
+                Building with Python,
+                AI & Computer Vision
+            </h1>
 
-<p>
-    A Python computer vision project that uses
-    OpenCV, webcam input, and color detection
-    to create a real-time invisibility effect.
-</p>
+            <p>
+                Welcome to my software development
+                portfolio. Explore my coding projects,
+                technical skills, and practical applications.
+            </p>
 
-<a href="https://github.com/naz-tbz/opencv-invisibility-cloak"
-   target="_blank"
-   rel="noopener noreferrer">
-    View Project on GitHub
-</a>
+            <a class="hero-button" href="#projects">
+                Explore My Projects
+            </a>
+        </div>
+    </header>
 
+    <main>
 
-    <h2>GitHub</h2>
-    <a href="https://github.com/naz-tbz">
-        View My GitHub Profile
-    </a>
+        <section id="about">
+            <h2>About Me</h2>
+
+            <p>
+                I am interested in software development,
+                Python programming, artificial intelligence,
+                machine learning, and computer vision.
+                This portfolio showcases projects I have
+                developed to apply and improve my
+                programming skills.
+            </p>
+
+            <h3>Technical Skills</h3>
+
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">OpenCV</span>
+                <span class="skill">Machine Learning</span>
+                <span class="skill">Deep Learning</span>
+                <span class="skill">Computer Vision</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <p class="section-description">
+                A selection of my programming projects.
+                Each completed project links to its
+                source code on GitHub.
+            </p>
+
+            <div class="projects">
+
+                <!-- PROJECT 1 -->
+                <article class="project-card">
+                    <div class="project-top blue">
+                        📷
+                    </div>
+
+                    <div class="project-content">
+                        <h3>OpenCV Invisibility Cloak</h3>
+
+                        <p>
+                            A real-time computer vision
+                            application using webcam input
+                            and color detection to create
+                            an invisibility effect.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/naz-tbz/opencv-invisibility-cloak"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Source Code &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PROJECT 2 -->
+                <article class="project-card">
+                    <div class="project-top purple">
+                        🖼️
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Computer Vision Toolkit</h3>
+
+                        <p>
+                            Python applications for image
+                            processing, face detection,
+                            and smile detection.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Image Processing</span>
+                        </div>
+
+                        <p class="coming-soon">
+                            Source code coming soon
+                        </p>
+                    </div>
+                </article>
+
+                <!-- PROJECT 3 -->
+                <article class="project-card">
+                    <div class="project-top orange">
+                        🧠
+                    </div>
+
+                    <div class="project-content">
+                        <h3>CNN Image Classification</h3>
+
+                        <p>
+                            A deep learning project using
+                            a convolutional neural network
+                            to classify images.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">CNN</span>
+                        </div>
+
+                        <p class="coming-soon">
+                            Source code coming soon
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact">
+                <h2>Connect With Me</h2>
+
+                <p>
+                    Explore my repositories and
+                    software development projects.
+                </p>
+
+                <a href="https://github.com/naz-tbz"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit My GitHub Profile &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Software Development Portfolio |
+            Built with HTML & CSS
+        </p>
+    </footer>
+
 </body>
 </html>
